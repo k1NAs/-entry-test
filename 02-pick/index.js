@@ -5,5 +5,13 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
+	let result = {};
 
+	fields.forEach((field) => {
+		if (obj[field] && typeof obj[field] !== 'function') {
+			result[field] = obj[field]
+		}
+	});
+
+	return result;
 };
